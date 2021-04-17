@@ -5,4 +5,9 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Searching\Searching.csproj" />
+    <ProjectReference Include="..\UDLinkedList\UDLinkedList.csproj" />
+  </ItemGroup>
+
 </Project>

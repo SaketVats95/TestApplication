@@ -1,6 +1,9 @@
-﻿using System;
+﻿using Searching;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using UDLinkedList;
 
 namespace TestApplication
 {
@@ -13,11 +16,45 @@ namespace TestApplication
 
             //Console.WriteLine("Hello World!");
             //List<int> data = Enumerable.Range(1, 10).ToList<int>();
+            int[] data = Enumerable.Range(1, 100000).ToArray<int>();
             //PrintRecursion(data, 0);
-            SolveProblem();
+            //SolveProblem();
+            //UDLinkedList();
+            int dataToFind = 100;
+            var watch = new Stopwatch();
+            watch.Start();
+            var result = BinarySearch.Recursive(data, dataToFind, 0, data.Length - 1);
+            Console.WriteLine(result);
+            watch.Stop();
+            Console.WriteLine($"Total Execution Time: {watch.ElapsedMilliseconds} ms");
+
+
+            if (!watch.IsRunning)
+                watch.Restart(); // Reset time to 0 and start measuring
+        
+
+            watch.Start();
+            result = BinarySearch.Iterative(data, dataToFind);
+            Console.WriteLine(result);
+            watch.Stop();
+            Console.WriteLine($"Total Execution Time: {watch.ElapsedMilliseconds} ms");
             Console.ReadKey();
         }
 
+        #region Work On UDLinked List
+        public static void UDLinkedList() {
+           UDLinkedList.UDLinkedList uDLinkedList = new UDLinkedList.UDLinkedList();
+            uDLinkedList.AddToLast(10);
+            uDLinkedList.AddToLast("Saket");
+            uDLinkedList.AddToLast("Vats");
+            uDLinkedList.AddToLast("Duck");
+            uDLinkedList.printAllNodes();
+            Console.WriteLine("Middle Element :");
+            uDLinkedList.FindMiddleNode();
+        }
+        #endregion
+
+        #region Work on recursion Problem
         private static void SolveProblem()
         {
             int[] items =Array.ConvertAll(Console.ReadLine().Split(), s => int.Parse(s));
@@ -68,6 +105,8 @@ namespace TestApplication
         {
             return new int[2, 2] {{x + val, y}, { x, y + val } };
         }
+
+        #endregion
 
         private static void PrintRecursion(List<int> data, int v)
         {
