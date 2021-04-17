@@ -16,30 +16,47 @@ namespace TestApplication
 
             //Console.WriteLine("Hello World!");
             //List<int> data = Enumerable.Range(1, 10).ToList<int>();
-            int[] data = Enumerable.Range(1, 100000).ToArray<int>();
             //PrintRecursion(data, 0);
             //SolveProblem();
             //UDLinkedList();
-            int dataToFind = 100;
+            TestSearching();
+            Console.ReadKey();
+        }
+
+        #region Searching Algo Test
+        public static void TestSearching() {
+            int[] data = Enumerable.Range(1, 100000000).ToArray<int>();
+
+            int dataToFind = 100000000;
             var watch = new Stopwatch();
             watch.Start();
             var result = BinarySearch.Recursive(data, dataToFind, 0, data.Length - 1);
             Console.WriteLine(result);
             watch.Stop();
-            Console.WriteLine($"Total Execution Time: {watch.ElapsedMilliseconds} ms");
+            Console.WriteLine($"Total Execution Time Binary Recursive: {watch.ElapsedMilliseconds} ms");
 
 
             if (!watch.IsRunning)
                 watch.Restart(); // Reset time to 0 and start measuring
-        
+
 
             watch.Start();
             result = BinarySearch.Iterative(data, dataToFind);
             Console.WriteLine(result);
             watch.Stop();
-            Console.WriteLine($"Total Execution Time: {watch.ElapsedMilliseconds} ms");
-            Console.ReadKey();
+            Console.WriteLine($"Total Execution Time Binary Iterative: {watch.ElapsedMilliseconds} ms");
+
+            if (!watch.IsRunning)
+                watch.Restart(); // Reset time to 0 and start measuring
+
+
+            watch.Start();
+            result = LinearSearch.Normal(data, dataToFind);
+            Console.WriteLine(result);
+            watch.Stop();
+            Console.WriteLine($"Total Execution Time Linear: {watch.ElapsedMilliseconds} ms");
         }
+        #endregion
 
         #region Work On UDLinked List
         public static void UDLinkedList() {
@@ -107,6 +124,8 @@ namespace TestApplication
         }
 
         #endregion
+
+
 
         private static void PrintRecursion(List<int> data, int v)
         {
