@@ -8,6 +8,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Searching\Searching.csproj" />
     <ProjectReference Include="..\UDLinkedList\UDLinkedList.csproj" />
+    <ProjectReference Include="..\UDSorting\UDSorting.csproj" />
   </ItemGroup>
 
 </Project>

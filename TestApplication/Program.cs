@@ -19,9 +19,20 @@ namespace TestApplication
             //PrintRecursion(data, 0);
             //SolveProblem();
             //UDLinkedList();
-            TestSearching();
+            //TestSearching();
+            SortTest();
             Console.ReadKey();
         }
+
+        #region Sorting Test
+        public static void SortTest() {
+            int[] data = new int[10] { 4, 5, 6, 1,7,12,13,14,20, 0};
+
+            Console.WriteLine($"Data : {String.Join(",", data)}");
+            //UDSorting.Selection.Sort(data);
+            UDSorting.Insertion.Sort(data);
+        } 
+        #endregion
 
         #region Searching Algo Test
         public static void TestSearching() {
