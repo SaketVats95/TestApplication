@@ -26,12 +26,17 @@ namespace TestApplication
 
         #region Sorting Test
         public static void SortTest() {
-            int[] data = new int[10] { 4, 5, 6, 1,7,12,13,14,20, 0};
+            //int[] data = new int[10] { 4, 5, 6, 1,7,12,13,14,20, 0};
+            int[] data = new int[2] { 4, 0};
 
             Console.WriteLine($"Data : {String.Join(",", data)}");
             //UDSorting.Selection.Sort(data);
-            UDSorting.Insertion.Sort(data);
-        } 
+            //UDSorting.Insertion.Sort(data);
+            //UDSorting.BubbleSort.Sort(data);
+            UDSorting.Quick.Sort(data);
+
+
+        }
         #endregion
 
         #region Searching Algo Test
