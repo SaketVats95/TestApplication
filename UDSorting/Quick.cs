@@ -30,7 +30,7 @@ namespace UDSorting
             {
                 do { i++; } while (i <=end && array[i] <= pivot);
                 //do { j--; } while (j >= start && array[j] > pivot);
-                while (j >= start && array[j] > pivot) { j--; } ;
+                while (j >= start && array[j] > pivot) { j--; };
                 if (i <= j) {
                     int temp = array[i];
                     array[i] = array[j];
@@ -39,7 +39,6 @@ namespace UDSorting
             }
             array[start] = array[j];
             array[j] = pivot;
-
             return j;
         }
     }
